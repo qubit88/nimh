@@ -1,0 +1,12 @@
+.header {
+  height: calc(var(--vh, 1vh) * 12.9);
+  padding-top: calc(var(--vh, 1vh) * 3.44);
+  background-color: $green;
+  &__text {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    color: white;
+    text-align: center;
+  }
+}

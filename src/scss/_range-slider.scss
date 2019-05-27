@@ -1,0 +1,86 @@
+.range-slider {
+  &__input-container {
+    height: 24px;
+    background: rgba(196, 196, 196, 0.22);
+    border-radius: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+  }
+
+  &__input {
+    height: 100%;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: linear-gradient(
+        to right,
+        $customer-review-red 0%,
+        $customer-review-orange 25%,
+        $customer-review-yellow 50%,
+        $customer-review-lime 80%,
+        $customer-review-green 88%
+      )
+      no-repeat;
+    border-radius: 27px;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 37px;
+      height: 37px;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      background-image: url(../images/Nimpha-icon.png);
+      background-repeat: no-repeat;
+      background-size: 50%;
+      background-position: 50% 50%;
+      border-radius: 50%;
+    }
+
+    &::-moz-range-thumb {
+      width: 37px;
+      height: 37px;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+      cursor: pointer;
+      background-image: url(../images/Nimpha-icon.png);
+      background-repeat: no-repeat;
+      background-size: 50%;
+      background-position: 50% 50%;
+      border-radius: 50%;
+    }
+  }
+
+  &__value {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.875rem;
+
+    @for $i from 1 through 10 {
+      &[data-active="#{$i}"] {
+        .range-slider__number:nth-child(#{$i}) {
+          background-color: rgba(
+            nth($customer-review-colors, $i),
+            0.5
+          ) !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  &__number {
+    font-size: 14px;
+    line-height: 24px;
+    color: #9b9b9b;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+}

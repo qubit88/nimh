@@ -11,12 +11,40 @@ window.addEventListener("DOMContentLoaded", function() {
   }
 
   Range.prototype.init = function() {
-    this.valueBar.dataset.active = "8";
-    this.el.addEventListener(
-      "input",
-      e => (this.valueBar.dataset.active = e.target.value)
-    );
+    if (this.el) {
+      this.valueBar.dataset.active = "8";
+      this.el.addEventListener(
+        "input",
+        e => (this.valueBar.dataset.active = e.target.value)
+      );
+    }
+  };
+
+  function Modal() {
+    this.el = document.querySelector(".modal");
+  }
+
+  Modal.prototype.init = function() {
+    if (this.el) {
+      this.el.addEventListener("click", e => {
+        if (
+          e.target == this.el ||
+          e.target.classList.contains("modal__close")
+        ) {
+          this.close();
+        }
+      });
+    }
+  };
+
+  Modal.prototype.open = function() {
+    this.el.style.display = "flex";
+  };
+
+  Modal.prototype.close = function() {
+    this.el.style.display = "none";
   };
 
   new Range().init();
+  new Modal().init();
 });

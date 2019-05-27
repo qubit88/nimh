@@ -40,6 +40,10 @@
       background-size: 50%;
       background-position: 50% 50%;
       border-radius: 50%;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     &::-moz-range-thumb {
@@ -53,6 +57,10 @@
       background-size: 50%;
       background-position: 50% 50%;
       border-radius: 50%;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1, 1.1);
+      }
     }
   }
 

@@ -1,0 +1,20 @@
+.notfound {
+  flex-grow: 1;
+  &__img {
+    margin-bottom: calc(var(--vh, 1vh) * 2.55);
+  }
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.1666em;
+    text-align: center;
+    color: $green;
+  }
+}

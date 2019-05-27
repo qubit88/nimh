@@ -1,0 +1,32 @@
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+  &__content {
+    width: 85.3vw;
+    height: 81.6vw;
+    max-width: 500px;
+    position: relative;
+    padding-top: calc(var(--vh, 1vh) * 6.5);
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: white;
+  }
+  &__close {
+    position: absolute;
+    top: -23px;
+    right: -13px;
+  }
+  &__text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: $green;
+  }
+}

@@ -2,6 +2,15 @@
   height: calc(var(--vh, 1vh) * 12.9);
   padding-top: calc(var(--vh, 1vh) * 3.44);
   background-color: $green;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: url(../images/icon.png);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    margin-top: -30px;
+  }
   &__text {
     font-weight: bold;
     font-size: 18px;

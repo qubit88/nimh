@@ -21,6 +21,7 @@
 
   &__field + &__field {
     margin-top: auto;
+    padding-top: 4vh;
   }
 
   &__form {
@@ -31,8 +32,8 @@
   }
 
   &__label {
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 1.125rem;
+    line-height: 1.1666em;
     text-align: center;
     color: $grey;
     font-weight: bold;
@@ -40,10 +41,10 @@
 
     display: block;
     &\--range {
-      margin-bottom: 1.6em;
+      margin-bottom: calc(var(--vh, 1vh) * 4.3);
     }
     &\--comments {
-      margin-bottom: 1.3em;
+      margin-bottom: calc(var(--vh, 1vh) * 3.5);
     }
   }
   &__form-content {
@@ -58,7 +59,7 @@
   }
   &__submit {
     color: white;
-    height: 2.72em;
+
     font-weight: bold;
     font-size: 1.375rem;
     line-height: 2.72em;
@@ -88,6 +89,15 @@
 
     &::placeholder {
       color: rgba(189, 189, 189, 0.71);
+    }
+  }
+  @media (max-height: $desktop) and (orientation: landscape) {
+    &__label\--comments {
+      margin-bottom: calc(var(--vh, 1vh) * 2);
+    }
+    &__submit {
+      height: 1.6em;
+      line-height: 1.6em;
     }
   }
 }

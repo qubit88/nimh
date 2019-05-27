@@ -11,6 +11,9 @@ body {
   height: calc(var(--vh, 1vh) * 100);
   font-family: "Roboto";
   font-weight: bold;
+  @media (orientation: landscape) and (max-height: 667px) {
+    font-size: 14px;
+  }
 }
 
 *,
@@ -43,3 +46,5 @@ $customer-review-colors: (
   $customer-review-green,
   $customer-review-green
 );
+
+$desktop: 768px;

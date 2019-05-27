@@ -1,5 +1,5 @@
 .visibility {
-  @media (min-width: 900px) {
+  @media (min-width: 900px), (orientation: landscape) {
     display: none;
   }
 }

@@ -5,17 +5,34 @@
   position: relative;
   &:after {
     position: absolute;
-    content: url(../images/icon.png);
+    content: "";
+    background-image: url(../images/icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(var(--vh, 1vh) * 13);
+    width: calc(var(--vh, 1vh) * 13);
+    border-radius: 50%;
+    background-size: contain;
     left: 50%;
     transform: translateX(-50%);
     top: 100%;
-    margin-top: -30px;
+    margin-top: calc(var(--vh, 1vh) * -4.4);
   }
   &__text {
     font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 1.125rem;
+    line-height: 1.1666em;
     color: white;
     text-align: center;
+  }
+  @media (max-height: $desktop) and (orientation: landscape) {
+    padding-top: calc(var(--vh, 1vh) * 1.5);
+    padding-bottom: calc(var(--vh, 1vh) * 1.5);
+    &__text {
+    }
+    &::after {
+      left: 2.2%;
+      transform: none;
+    }
   }
 }

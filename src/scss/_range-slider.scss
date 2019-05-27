@@ -68,6 +68,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.875rem;
+    padding-right: 5px;
 
     @for $i from 1 through 10 {
       &[data-active="#{$i}"] {

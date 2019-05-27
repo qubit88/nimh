@@ -118,6 +118,11 @@ module.exports = {
       template: "./src/html/not_found.html",
       filename: "./not_found.html"
     }),
+    new HtmlWebPackPlugin({
+      title: "Title",
+      template: "./src/html/incorrect_request.html",
+      filename: "./incorrect_request.html"
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].css"
     })

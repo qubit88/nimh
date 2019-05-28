@@ -8,6 +8,7 @@
     justify-content: center;
     width: 100%;
     padding: 5px;
+    margin-top: 0.875rem;
   }
 
   &__input {
@@ -67,7 +68,6 @@
   &__value {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 0.875rem;
     flex-shrink: 0;
     padding-right: 5px;
 

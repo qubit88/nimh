@@ -2,13 +2,13 @@
   display: flex;
   justify-content: stretch;
   flex-grow: 1;
+  width: 96vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2vw;
 
   &__body {
-    width: 96vw;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: calc(var(--vh, 1vh) * 8.25);
-    padding-bottom: calc(var(--vh, 1vh) * 11.84);
+    padding-bottom: calc(var(--vh, 1vh) * 10.6);
   }
 
   &__text {
@@ -48,8 +48,8 @@
     }
   }
   &__form-content {
-    padding-left: 2.2%;
-    padding-right: 2.2%;
+    padding-left: 2vw;
+    padding-right: 2vw;
     padding-bottom: calc(var(--vh, 1vh) * 8.7);
     display: flex;
     flex-direction: column;

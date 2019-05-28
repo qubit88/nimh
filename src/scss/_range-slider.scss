@@ -67,7 +67,8 @@
   &__value {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.875rem;
+    padding-bottom: 0.875rem;
+    flex-shrink: 0;
     padding-right: 5px;
 
     @for $i from 1 through 10 {

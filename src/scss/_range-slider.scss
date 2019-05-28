@@ -36,7 +36,7 @@
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
       cursor: pointer;
-      background-image: url(../images/Nimpha-icon.png);
+      background-image: url(../images/icon.svg);
       background-repeat: no-repeat;
       background-size: 50%;
       background-position: 50% 50%;
@@ -53,7 +53,7 @@
       background: #ffffff;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
       cursor: pointer;
-      background-image: url(../images/Nimpha-icon.png);
+      background-image: url(../images/icon.svg);
       background-repeat: no-repeat;
       background-size: 50%;
       background-position: 50% 50%;
@@ -92,5 +92,8 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

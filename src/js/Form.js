@@ -29,7 +29,6 @@ Form.prototype.sendData = function() {
     "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
     {
       method: "POST",
-      mode: "no-cors", // no-cors, cors, *same-origin
       headers: {
         "Content-Type": "application/json"
       },
@@ -39,6 +38,7 @@ Form.prototype.sendData = function() {
     .then(function(response) {
       console.log(response, "response");
       console.log(response.status, "response status");
+
       if (response.status === 200) {
         return response.text();
       } else {

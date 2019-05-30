@@ -21,39 +21,47 @@ Form.prototype.sendData = function() {
     object[key] = value;
   });
 
-  let json = JSON.stringify(object);
+  let user_id = location.href.split("user_id=")[1];
 
-  console.log(FD, json);
+  if (user_id) {
+    user_id = user_id.split("&")[0];
 
-  fetch(
-    "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: json
-    }
-  )
-    .then(function(response) {
-      console.log(response, "response");
-      console.log(response.status, "response status");
+    object["user_id"] = user_id;
 
-      if (response.status === 200) {
-        return response.text();
-      } else {
-        self.modal.open("Something went wrong.");
-        console.log(`Response status ${response.status}`);
+    let json = JSON.stringify(object);
+
+    console.log(FD, json);
+
+    fetch(
+      "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: json
       }
-    })
-    .then(function(text) {
-      if (text.includes("Success")) {
-        self.modal.open("Операція пройшла успішно");
-      } else {
-        self.modal.open("Something went wrong.");
-        console.log(`Server responded with ${text}`);
-      }
-    });
+    )
+      .then(function(response) {
+        console.log(response, "response");
+        console.log(response.status, "response status");
+
+        if (response.status === 200) {
+          return response.text();
+        } else {
+          self.modal.open("Something went wrong.");
+          console.log(`Response status ${response.status}`);
+        }
+      })
+      .then(function(text) {
+        if (text.includes("Success")) {
+          self.modal.open("Операція пройшла успішно");
+        } else {
+          self.modal.open("Something went wrong.");
+          console.log(`Server responded with ${text}`);
+        }
+      });
+  }
 };
 
 export default Form;

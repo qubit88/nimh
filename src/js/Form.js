@@ -12,10 +12,9 @@ Form.prototype.init = function() {
 };
 
 Form.prototype.sendData = function() {
-  let XHR = new XMLHttpRequest();
+  let self = this;
 
   let FD = new FormData(this.el);
-
   let object = {};
 
   FD.forEach((value, key) => {
@@ -26,27 +25,35 @@ Form.prototype.sendData = function() {
 
   console.log(FD, json);
 
-  XHR.addEventListener("load", event => {
-    alert(event.target.responseText);
-    if (event.target.responseText === "Success") {
-      this.modal.open("Операція пройшла успішно");
-    } else {
-      this.modal.open("Something went wrong");
+  fetch(
+    "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
+    {
+      method: "POST",
+      mode: "no-cors", // no-cors, cors, *same-origin
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: json
     }
-  });
-
-  XHR.addEventListener("error", function(event) {
-    alert("Oops! Something went wrong.");
-  });
-
-  XHR.open(
-    "POST",
-    "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews"
-  );
-
-  XHR.setRequestHeader("Content-Type", "application/json");
-
-  XHR.send(json);
+  )
+    .then(function(response) {
+      console.log(response);
+      if (response.status === 200) {
+        console.log(response.text());
+        return response.text();
+      } else {
+        self.modal.open("Something went wrong.");
+        console.log(`Response status ${response.status}`);
+      }
+    })
+    .then(function(text) {
+      if (text.includes("Success")) {
+        self.modal.open("Операція пройшла успішно");
+      } else {
+        self.modal.open("Something went wrong.");
+        console.log(`Server responded with ${text}`);
+      }
+    });
 };
 
 export default Form;

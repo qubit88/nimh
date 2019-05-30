@@ -36,9 +36,6 @@ Form.prototype.sendData = function() {
       "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
         body: json
       }
     )

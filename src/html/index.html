@@ -20,7 +20,7 @@
       </header>
       <div class="feedback">
         <div class="feedback__body">
-          <form action="" class="feedback__form">
+          <form action="" class="feedback__form" enctype="application/json">
             <div class="feedback__form-content">
               <h2 class="feedback__text">
                 Шановний клієнт, просимо вас оцінити якість обслуговування і
@@ -51,7 +51,7 @@
                       min="1"
                       max="10"
                       value="8"
-                      name="feedback-number"
+                      name="score"
                       required
                     />
                   </div>
@@ -65,13 +65,18 @@
                   <input
                     type="text"
                     class="feedback__input"
-                    name="feedback-comments"
+                    name="answer"
                     placeholder="Enter your comments"
                     value=""
                   />
                 </div>
               </div>
-              <input type="hidden" id="custId" name="custId" value="3487" />
+              <input
+                type="hidden"
+                id="custId"
+                name="user_id"
+                value="RN001124477"
+              />
             </div>
             <button class="feedback__submit">
               Send comment

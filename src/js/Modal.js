@@ -1,5 +1,6 @@
 function Modal() {
   this.el = document.querySelector(".modal");
+  this.text = this.el.querySelector(".modal__text");
 }
 
 Modal.prototype.init = function() {
@@ -12,8 +13,9 @@ Modal.prototype.init = function() {
   }
 };
 
-Modal.prototype.open = function() {
+Modal.prototype.open = function(text) {
   this.el.style.display = "flex";
+  this.text.innerHTML = text;
 };
 
 Modal.prototype.close = function() {

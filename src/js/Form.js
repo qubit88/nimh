@@ -37,9 +37,9 @@ Form.prototype.sendData = function() {
     }
   )
     .then(function(response) {
-      console.log(response);
+      console.log(response, "response");
+      console.log(response.status, "response status");
       if (response.status === 200) {
-        console.log(response.text());
         return response.text();
       } else {
         self.modal.open("Something went wrong.");

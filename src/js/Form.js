@@ -15,22 +15,18 @@ Form.prototype.sendData = function() {
   let self = this;
 
   let FD = new FormData(this.el);
-  let object = {};
 
-  FD.forEach((value, key) => {
-    object[key] = value;
-  });
-
-  let user_id = location.href.split("user_id=")[1];
+  let user_id = new URLSearchParams(location.search).get("user_id");
 
   if (user_id) {
-    user_id = user_id.split("&")[0];
+    FD.set("user_id", user_id);
 
-    object["user_id"] = user_id;
+    let object = {};
 
+    FD.forEach((value, key) => {
+      object[key] = value;
+    });
     let json = JSON.stringify(object);
-
-    console.log(FD, json);
 
     fetch(
       "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",

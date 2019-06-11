@@ -29,7 +29,7 @@ Form.prototype.sendData = function() {
     let json = JSON.stringify(object);
 
     fetch(
-      "http://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
+      "https://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
       {
         method: "POST",
         body: json

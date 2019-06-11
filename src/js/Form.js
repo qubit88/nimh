@@ -29,7 +29,7 @@ Form.prototype.sendData = function() {
     let json = JSON.stringify(object);
 
     fetch(
-      "http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
+      "http://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
       {
         method: "POST",
         body: json
@@ -43,7 +43,6 @@ Form.prototype.sendData = function() {
           return response.text();
         } else {
           self.modal.open("Something went wrong.");
-          console.log(`Response status ${response.status}`);
         }
       })
       .then(function(text) {
@@ -51,7 +50,7 @@ Form.prototype.sendData = function() {
           self.modal.open("Операція пройшла успішно");
         } else {
           self.modal.open("Something went wrong.");
-          console.log(`Server responded with ${text}`);
+          console.log(`Server responded with text ${text}`);
         }
       });
   }

@@ -396,9 +396,10 @@ html,
   display: none; }
   .modal__img {
     display: none;
-    width: 30%;
+    width: 50%;
     margin-top: auto;
-    margin-bottom: auto; }
+    margin-bottom: auto;
+    max-width: 256px; }
   .modal__img\--success {
     width: 90%; }
   .modal__load {

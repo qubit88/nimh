@@ -32,33 +32,42 @@ Form.prototype.sendData = function() {
 
     self.modal.load();
 
-    fetch(
-      "https://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
-      {
-        method: "POST",
-        body: json
-      }
-    )
-      .then(function(response) {
-        console.log("response", response);
-        console.log("response status", response.status);
-        if (response.status === 200) {
-          return response.text();
-        } else {
-          self.modal.open("Сталася помилка", false);
-          console.log(`Server responded not with success - response: ${response}`);
+    try {
+      fetch(
+        "https://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
+        {
+          method: "POST",
+          body: json
         }
-      })
-      .then(function(text) {
-        
-        if (text.includes("Success")) {
-          self.modal.open("Операція пройшла успішно", true);
-          console.log(`Server responded with success - text: ${text}`);
-        } else {
-          self.modal.open("Сталася помилка", false);
-          console.log(`Server responded not with success - body text: ${text}`);
-        }
-      });
+      )
+        .then(function(response) {
+          console.log("response", response);
+          console.log("response status", response.status);
+          if (response.status === 200) {
+            return response.text();
+          } else {
+            self.modal.open("Сталася помилка", false);
+            console.log(`Server responded not with success - response: ${response}`);
+          }
+        })
+        .then(function(text) {
+          
+          if (text.includes("Success")) {
+            self.modal.open("Операція пройшла успішно", true);
+            console.log(`Server responded with success - text: ${text}`);
+          } else {
+            self.modal.open("Сталася помилка", false);
+            console.log(`Server responded not with success - body text: ${text}`);
+          }
+        })
+        .catch(error => console.error(error));
+    }
+
+    catch(error) {
+      console.log(error);
+    }
+
+    
   }
 };
 

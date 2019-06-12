@@ -9,9 +9,10 @@
   display: none;
   &__img {
     display: none;
-    width: 30%;
+    width: 50%;
     margin-top: auto;
     margin-bottom: auto;
+    max-width: 256px;
   }
   &__img\--success {
     width: 90%;

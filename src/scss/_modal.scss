@@ -16,13 +16,27 @@
   &__img\--success {
     width: 90%;
   }
-  &\--success {
+
+  &__load {
+    display: none;
+    max-width: 256px;
+    width: 30%;
+  }
+  &[data-status=success] {
     .modal__img\--success {
       display: block;
     }
   }
-  &\--failure {
+  &[data-status=failure] {
     .modal__img\--failure {
+      display: block;
+    }
+  }
+  &[data-status=load] {
+    .modal__content {
+      display: none;
+    }
+    .modal__load {
       display: block;
     }
   }

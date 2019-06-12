@@ -30,6 +30,8 @@ Form.prototype.sendData = function() {
 
     console.log("request ", json)
 
+    self.modal.load();
+
     fetch(
       "https://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
       {
@@ -40,7 +42,6 @@ Form.prototype.sendData = function() {
       .then(function(response) {
         console.log("response", response);
         console.log("response status", response.status);
-
         if (response.status === 200) {
           return response.text();
         } else {

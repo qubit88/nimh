@@ -13,10 +13,15 @@ Modal.prototype.init = function() {
   }
 };
 
+Modal.prototype.load = function() {
+  this.el.style.display = "flex";
+  this.el.dataset.status = 'load';
+}
+
 Modal.prototype.open = function(text, success) {
   this.el.style.display = "flex";
   if(text) {
-    success ? this.el.classList.add('modal--success') : this.el.classList.add('modal--failure');
+    this.el.dataset.status = success ? 'success' :  'failure';
     this.text.innerHTML = text;
   }
 };

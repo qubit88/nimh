@@ -401,9 +401,17 @@ html,
     margin-bottom: auto; }
   .modal__img\--success {
     width: 90%; }
-  .modal\--success .modal__img\--success {
+  .modal__load {
+    display: none;
+    max-width: 256px;
+    width: 30%; }
+  .modal[data-status=success] .modal__img\--success {
     display: block; }
-  .modal\--failure .modal__img\--failure {
+  .modal[data-status=failure] .modal__img\--failure {
+    display: block; }
+  .modal[data-status=load] .modal__content {
+    display: none; }
+  .modal[data-status=load] .modal__load {
     display: block; }
   .modal__content {
     width: 85.3vw;

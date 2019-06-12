@@ -28,7 +28,7 @@ Form.prototype.sendData = function() {
     });
     let json = JSON.stringify(object);
 
-    console.log("request ", json)
+    // console.log("request ", json)
 
     self.modal.load();
 
@@ -41,23 +41,23 @@ Form.prototype.sendData = function() {
         }
       )
         .then(function(response) {
-          console.log("response", response);
-          console.log("response status", response.status);
+          // console.log("response", response);
+          // console.log("response status", response.status);
           if (response.status === 200) {
             return response.text();
           } else {
             self.modal.open("Сталася помилка", false);
-            console.log(`Server responded not with success - response: ${response}`);
+            // console.log(`Server responded not with success - response: ${response}`);
           }
         })
         .then(function(text) {
           
           if (text.includes("Success")) {
             self.modal.open("Операція пройшла успішно", true);
-            console.log(`Server responded with success - text: ${text}`);
+            // console.log(`Server responded with success - text: ${text}`);
           } else {
             self.modal.open("Сталася помилка", false);
-            console.log(`Server responded not with success - body text: ${text}`);
+            // console.log(`Server responded not with success - body text: ${text}`);
           }
         })
         .catch(error => console.error(error));

@@ -13,9 +13,12 @@ Modal.prototype.init = function() {
   }
 };
 
-Modal.prototype.open = function(text) {
+Modal.prototype.open = function(text, success) {
   this.el.style.display = "flex";
-  this.text.innerHTML = text;
+  if(text) {
+    success ? this.el.classList.add('modal--success') : this.el.classList.add('modal--failure');
+    this.text.innerHTML = text;
+  }
 };
 
 Modal.prototype.close = function() {

@@ -28,6 +28,8 @@ Form.prototype.sendData = function() {
     });
     let json = JSON.stringify(object);
 
+    console.log("request ", json)
+
     fetch(
       "https://workbook.pp.ua", //"http://144.76.220.150:8080/base21cc/hs/CustomerReviewsAPI/CustomerReviews",
       {
@@ -36,21 +38,24 @@ Form.prototype.sendData = function() {
       }
     )
       .then(function(response) {
-        console.log(response, "response");
-        console.log(response.status, "response status");
+        console.log("response", response);
+        console.log("response status", response.status);
 
         if (response.status === 200) {
           return response.text();
         } else {
-          self.modal.open("Something went wrong.");
+          self.modal.open("Сталася помилка", false);
+          console.log(`Server responded not with success - response: ${response}`);
         }
       })
       .then(function(text) {
+        
         if (text.includes("Success")) {
-          self.modal.open("Операція пройшла успішно");
+          self.modal.open("Операція пройшла успішно", true);
+          console.log(`Server responded with success - text: ${text}`);
         } else {
-          self.modal.open("Something went wrong.");
-          console.log(`Server responded with text ${text}`);
+          self.modal.open("Сталася помилка", false);
+          console.log(`Server responded not with success - body text: ${text}`);
         }
       });
   }
